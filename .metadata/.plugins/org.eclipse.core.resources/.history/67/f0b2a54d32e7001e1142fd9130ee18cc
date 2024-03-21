@@ -1,0 +1,23 @@
+package edu.kh.servlet.controller;
+
+import jakarta.servlet.http.HttpServlet; //jakarta : 자바 확장 기능 담긴 패키지 
+
+//클라이언트 -> 요청 -> 서버(Controller->Service->DAO->DB)
+//요청도 제일 먼저 받고 제일 마지막에 응답하는 역할하는 것 -> Controller
+
+
+// Controller : 요청(Request)에 따라 어떤 Service를 호출할지 "제어"하고 
+// 				어떻게 응답(Response)을 할지 "제어"하는 역할
+public class ExampleController1 extends HttpServlet{
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
