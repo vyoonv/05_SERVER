@@ -31,7 +31,7 @@
 		<h3>EL 에서 모든 비교는 == 또는 eq /!= 또는 ne(not equals)</h3>
 		<h3>EL에서 문자열은 ' '(홑따옴표)로 표현 </h3>
 		
-		<c:if test = "${name eq'홍길동'}">
+		<c:if test = "${name eq '홍길동'}">
 			<h3>이름이 일치합니다</h3>
 		</c:if>
 		
