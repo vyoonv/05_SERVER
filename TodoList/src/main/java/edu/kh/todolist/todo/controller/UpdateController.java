@@ -17,55 +17,74 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/update")
 public class UpdateController extends HttpServlet{
 	
+	private TodoService service = new TodoService(); 
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
 			
-			String todoNo = req.getParameter("todoNo");		
-			String title = req.getParameter("title"); 
-			String memo = req.getParameter("memo"); 
+			HttpSession session = req.getSession();
+			Member member = (Member) session.getAttribute("loginMember");
 			
-			TodoService service = new TodoService(); 
+			Todo todo = service.selectOne(req.getParameter("todoNo"), member.getMemberNo());
+			
+			req.setAttribute("todo", todo);
+			
+			req.getRequestDispatcher("/WEB-INF/views/update.jsp").forward(req, resp);
 			
 			
+		} catch(Exception e) {
+			System.out.println("[수정할 Todo 조회 중 예외발생]");
+			e.printStackTrace();
+		}
+	
+	
+	}
+
+	
+	
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		try {
 			
-			int result = service.update(todoNo, title, memo); 
+			HttpSession session = req.getSession();
 			
-			HttpSession session = req.getSession(); 
-			Member member = (Member) session.getAttribute("loginMember"); 
+			Member member = (Member) session.getAttribute("loginMember");
+			String title = req.getParameter("title");
+			String memo = req.getParameter("memo");
+			String todoNo = req.getParameter("todoNo");
 			
-			if(result>0) {
+			int result = service.update(title, memo, member.getMemberNo(), todoNo);
+			
+			if(result > 0) {
+				session.setAttribute("message", "수정 되었습니다!");
 				
-				session.setAttribute("message", "수정되었습니다");
+				// todoList 갱신된 값으로 재등록
+				List<Todo> todoList = service.selectAll(member.getMemberNo());
+				session.setAttribute("todoList", todoList);
 				
-				//todoList 갱신된 것 속성값으로 재등록 
-				List<Todo> todoList = service.selectAll(member.getMemberNo()); 
-				session.setAttribute("todoList", todoList);  // "todoList" 키에 덮어쓰기 
-				
-				
+				// 메인페이지로 재요청
 				resp.sendRedirect("/");
 				
 			} else {
 				session.setAttribute("message", "수정 실패!");
 				
-				
+				resp.sendRedirect( req.getHeader("referer") );
 			}
 			
-			resp.sendRedirect(req.getHeader("referer")); 
+			
 			
 		} catch(Exception e) {
-			
-			System.out.println("[수정 중 예외 발생]");
+			System.out.println("[Todo 수정 중 예외 발생]");
 			e.printStackTrace();
-			
 		}
-		
-		
-		
-		
-		
 	}
+	
+
+	
 	
 	
 	

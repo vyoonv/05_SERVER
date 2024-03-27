@@ -70,11 +70,11 @@ public class TodoService {
 	 * @param title 
 	 * @return
 	 */
-	public int update(String todoNo, String title, String memo) throws Exception {
+	public int update(String todoNo, String title, int memberNo, String memo) throws Exception {
 		
 		Connection conn = getConnection(); 
 		
-		int result = dao.update(conn, todoNo, title, memo); 
+		int result = dao.update(conn, todoNo, title, memo, memberNo); 
 		
 		if(result>0) commit(conn); 
 		else 		rollback(conn); 
@@ -82,6 +82,22 @@ public class TodoService {
 		close(conn); 
 		
 		return result;
+	}
+
+	/** todo 조회 서비스 
+	 * @param parameter
+	 * @param memberNo
+	 * @return
+	 */
+	public Todo selectOne(String todoNo, int memberNo) throws Exception {
+		
+		Connection conn = getConnection(); 
+		
+		Todo todo = dao.selectOne(conn, todoNo, memberNo); 
+		
+		close(conn); 
+		
+		return todo;
 	}
 
 }

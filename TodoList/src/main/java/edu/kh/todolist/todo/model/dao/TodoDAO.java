@@ -143,9 +143,10 @@ public class TodoDAO {
 	 * @param todoNo
 	 * @param memo 
 	 * @param title 
+	 * @param memberNo 
 	 * @return result 
 	 */
-	public int update(Connection conn, String todoNo, String title, String memo) throws Exception {
+	public int update(Connection conn, String todoNo, String title, String memo, int memberNo) throws Exception {
 		
 		int result = 0; 
 		
@@ -156,6 +157,7 @@ public class TodoDAO {
 			pstmt.setString(1, title);
 			pstmt.setString(2, memo);
 			pstmt.setString(3, todoNo);
+			pstmt.setInt(4, memberNo);
 			
 			result = pstmt.executeUpdate(); 
 					
@@ -167,6 +169,41 @@ public class TodoDAO {
 		}
 		
 		return result;
+	}
+
+	public Todo selectOne(Connection conn, String todoNo, int memberNo) throws Exception {
+		
+		Todo todo = null; 
+		
+		try {
+			
+			String sql = prop.getProperty("selectOne"); 
+			
+			pstmt = conn.prepareStatement(sql); 
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, todoNo);
+			
+			rs = pstmt.executeQuery(); 
+			
+			if(rs.next()) {
+				todo = new Todo(); 
+				todo.setTodoNo(rs.getInt("TODO_NO"));
+				todo.setTodoTitle(rs.getString("TODO_TITLE"));
+				todo.setTodoMemo(rs.getString("TODO_MEMO"));
+				todo.setTodoDate(rs.getString("TODO_DATE"));
+			}
+			
+			
+			
+		} finally {
+			
+			close(rs); 
+			close(pstmt); 
+		}
+		
+		
+		return todo;
 	}
 
 }
