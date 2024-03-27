@@ -77,4 +77,96 @@ public class TodoDAO {
 		return todoList;
 	}
 
+	/** todo 등록 sql 수행 dao
+	 * @param conn
+	 * @param title
+	 * @param memo
+	 * @param memberNo
+	 * @return result
+	 */
+	public int insert(Connection conn, String title, String memo, int memberNo) throws Exception {
+		
+		int result = 0; 
+		
+		try {
+			
+			String sql = prop.getProperty("insert"); 
+			
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setString(1, title);
+			pstmt.setString(2, memo);
+			pstmt.setInt(3, memberNo);
+			
+			result = pstmt.executeUpdate(); 
+					
+			
+		} finally {
+			close(pstmt); 
+		}
+	
+	
+		return result;
+	}
+
+	/** todo 삭제 sql 수행 dao
+	 * @param conn
+	 * @param todoNo
+	 * @return result 
+	 */
+	public int delete(Connection conn, String todoNo) throws Exception {
+		
+		int result = 0; 
+		
+		try {
+			
+			String sql = prop.getProperty("delete"); 
+			
+			pstmt = conn.prepareStatement(sql); 
+			
+			pstmt.setString(1, todoNo);
+			
+			result = pstmt.executeUpdate(); 
+					
+						
+		} finally {
+			
+			close(pstmt); 
+			
+		}
+				
+		
+		return result;
+	}
+
+	/** todo 수정 dao 
+	 * @param conn
+	 * @param todoNo
+	 * @param memo 
+	 * @param title 
+	 * @return result 
+	 */
+	public int update(Connection conn, String todoNo, String title, String memo) throws Exception {
+		
+		int result = 0; 
+		
+		try {
+			
+			String sql = prop.getProperty("update"); 
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setString(1, title);
+			pstmt.setString(2, memo);
+			pstmt.setString(3, todoNo);
+			
+			result = pstmt.executeUpdate(); 
+					
+			
+			
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }
