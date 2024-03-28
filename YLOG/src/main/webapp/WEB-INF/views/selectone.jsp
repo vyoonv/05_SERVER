@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>     
+    
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,24 +14,21 @@
 	<body>
 	
 		<main>
-			<table>
-				<tr>
-					<td>${post.postTitle}</td>
-				</tr>	
-				<tr>
-					<td>${post.postContent}</td>
-				</tr>		
-				<tr>
-					<td><a class="update-btn">수정</a></td>
-					<td><a class="delete-btn">삭제</a></td>
-				</tr>
-								
+			<div>
+			
+			<div><%= request.getAttribute("post") %></div>
+			
+			<span>${post.postContent}</span>
+
+			</div>
+					<a class="update-btn">수정</a>
+					<a class="delete-btn">삭제</a>
 				
-			</table>
 		</main>
 	
 	</body>
 </html>
+
 
 
 

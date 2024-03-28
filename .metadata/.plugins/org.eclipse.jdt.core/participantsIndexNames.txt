@@ -1,11 +1,5 @@
 INDEX VERSION 1.134
-C:\workspace\05_SERVER\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\313232130.index
+C:\workspace\Java\05_SERVER\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\325765927.index
 \YLOG\src\main\java
-C:\workspace\05_SERVER\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2774581863.index
-\TodoList\src\main\java
-C:\workspace\05_SERVER\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\325765927.index
+C:\workspace\Java\05_SERVER\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\356047933.index
 \YLOG\src\main\java
-C:\workspace\05_SERVER\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\356047933.index
-\YLOG\src\main\java
-C:\workspace\05_SERVER\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2811616627.index
-\TodoList\src\main\java

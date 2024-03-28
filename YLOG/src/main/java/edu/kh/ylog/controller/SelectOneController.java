@@ -17,32 +17,31 @@ public class SelectOneController extends HttpServlet {
 	
 	
 	
-@Override
-protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 	
-	try {
-		
-		
-		
-		PostService postService = new PostService(); 
-		
-		HttpSession session = req.getSession(); 
-		
-		Post post = new Post(); 
-		
-		post = postService.selectone(req);
-		
-		session.setAttribute("post", post);
-	/*	String referer = req.getHeader("referer");		
-		resp.sendRedirect(referer);  */
-		
-	} catch (Exception e) {
-		
-		e.printStackTrace();
-	}
+			PostService postService = new PostService(); 
+
+			
+			try {
+				
+				
+				String postNo = req.getParameter("postNo");
+				
+				Post post = postService.selectone(postNo);
+				
+				req.setAttribute("post", post);
+				
+				req.getRequestDispatcher("/WEB-INF/views/selectone.jsp").forward(req, resp);
+			
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+			
 	
-	req.getRequestDispatcher("/WEB-INF/views/selectone.jsp").forward(req, resp);
 	
 }
 	

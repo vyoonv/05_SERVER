@@ -64,19 +64,20 @@ public class PostService {
 	}
 
 	/** 포스트  조회하기 
-	 * @param req
+	 * @param postNo
 	 * @return
 	 */
-	public Post selectone(HttpServletRequest req) throws Exception {
+	public Post selectone(String postNo) throws Exception {
 		
 		Connection conn = getConnection(); 
 		
-		Post post = postDao.selectone(conn, req);
+		Post post = postDao.selectone(conn, postNo);
 		
 		close(conn); 
 		
 		return post;
 	}
+
 
 	
 

@@ -157,7 +157,7 @@ public class PostDAO {
 	}
 
 
-	public Post selectone(Connection conn, HttpServletRequest req) throws Exception {
+	public Post selectone(Connection conn, String postNo) throws Exception {
 		
 		Post post = null; 
 		
@@ -167,7 +167,7 @@ public class PostDAO {
 			
 			
 			pstmt = conn.prepareStatement(sql); 
-			pstmt.setInt(1, post.getPostNo());
+			pstmt.setString(1, postNo);
 			
 			rs = pstmt.executeQuery(); 
 			
