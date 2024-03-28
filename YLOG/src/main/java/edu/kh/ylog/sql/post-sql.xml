@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="selectOne">
+		SELECT P_TITLE, P_CONTENT, CREATE_DT
+		FROM POST 
+		WHERE MEM_NO = ?
+	</entry>
+
+	<entry key="selectAll">
+		SELECT P_TITLE, P_CONTENT, CREATE_DT
+		FROM POST
+		WHERE DELETE_FL ='N'
+	</entry>
+	
+	<entry key="insert">
+		INSERT INTO POST
+		VALUES(SEQ_P_NO.NEXTVAL, ?, ?, DEFAULT, DEFAULT, ?)
+	</entry>
+	
+	<entry key="selectone">
+		SELECT P_TITLE, P_CONTENT, CREATE_DT
+		FROM POST 
+		WHERE P_NO = ?
+	</entry>
+
+
+</properties>

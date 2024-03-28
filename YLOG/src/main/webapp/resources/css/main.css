@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+main {
+
+    width: 1000px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main h1 {
+    margin-bottom: 20px;
+    color : #7a9e8a
+}
+
+.main-form {
+
+    border : 1px solid  #7a9e8a; 
+    border-radius: 20px;
+
+    padding: 50px;
+    box-shadow: 10px 5px 5px #a1a1a1 ;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.login-form {
+
+    border : 1px solid  #7a9e8a; 
+    border-radius: 20px;
+
+    padding: 50px;
+    box-shadow: 10px 5px 5px #a1a1a1 ;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.login-form div {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.login-form button {
+    background-color: #7a9e8a;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid hsl(147, 22%, 35%);
+}
+
+.login-form button:hover {
+    background-color: white;
+    color :#45a899; 
+}
+
+.login {
+    text-decoration: none;
+    font-size: 20px;
+    color: #7a9e8a;
+    padding: 10px 30px 10px 30px;
+    margin: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    border: 1px solid #45a899;
+    cursor: pointer;
+}
+
+
+
+.login:hover{
+    border-bottom: 2px solid #7a9e8a;
+}
+
+
+.signup {
+    color: #7a9e8a;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    margin: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    border: 1px solid #45a899;
+
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup:hover{
+    border-bottom: 2px solid #7a9e8a;
+}
+
+.eachpost {
+    border: 1px solid #7a9e8a;
+    padding: 5%;
+    margin: 10%;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+
