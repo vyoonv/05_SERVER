@@ -18,6 +18,7 @@ public class Post {
 	private String postContent; 
 	private String postCreateDate; 
 	private String postDeleteFlag; 
+	private int memNo;
 	
 	
 }

@@ -3,6 +3,7 @@ package edu.kh.ylog.controller;
 import java.io.IOException;
 import java.util.List;
 
+import edu.kh.ylog.member.model.dto.Member;
 import edu.kh.ylog.member.model.service.MemberService;
 import edu.kh.ylog.post.model.dto.Post;
 import edu.kh.ylog.post.model.service.PostService;
@@ -21,23 +22,25 @@ public class MainPageController extends HttpServlet{
 		
 		
 		try {
+					
+			PostService postService = new PostService(); 
 			
-		
-		PostService postService = new PostService(); 
-		
-		HttpSession session = req.getSession(); 
-		
-		List<Post> postList = postService.selectMain();
-		
-		session.setAttribute("postList", postList);
-		
-		req.getRequestDispatcher("/WEB-INF/views/main.jsp").forward(req, resp);
-		
-		
-		
-		} catch (Exception e) {
-			System.out.println("[메인 페이지 이동 중 예외 발생]");
-			e.printStackTrace();
+			HttpSession session = req.getSession(); 
+			
+			Member member = (Member) session.getAttribute("loginMember");
+			
+			List<Post> postList = postService.selectMain();
+			
+			session.setAttribute("postList", postList);
+			
+			
+					
+			req.getRequestDispatcher("/WEB-INF/views/main.jsp").forward(req, resp);
+					
+			
+			} catch (Exception e) {
+				System.out.println("[메인 페이지 이동 중 예외 발생]");
+				e.printStackTrace();
 		}
 		
 		

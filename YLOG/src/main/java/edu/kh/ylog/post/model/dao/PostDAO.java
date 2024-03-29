@@ -328,6 +328,7 @@ public class PostDAO {
 				post.setPostTitle(rs.getString("P_TITLE"));
 				post.setPostContent(rs.getString("P_CONTENT"));
 				post.setPostCreateDate(rs.getString("CREATE_DT"));
+				post.setMemNo(rs.getInt("MEM_NO"));
 				
 				postList.add(post); 
 				
