@@ -44,7 +44,7 @@ public class InsertController extends HttpServlet{
 			if(result > 0) {
 				session.setAttribute("message", "업로드 성공!");
 				
-				List<Post> postList = postService.selectAll();  
+				List<Post> postList = postService.selectAll(member.getMemNo()); 
 				session.setAttribute("postList", postList);
 				
 				resp.sendRedirect("/");

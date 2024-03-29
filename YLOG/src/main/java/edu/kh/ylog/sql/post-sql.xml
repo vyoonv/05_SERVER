@@ -3,15 +3,17 @@
 <properties>
 
 	<entry key="selectOne">
-		SELECT P_TITLE, P_CONTENT, CREATE_DT
+		SELECT P_NO, P_TITLE, P_CONTENT
 		FROM POST 
 		WHERE MEM_NO = ?
+		AND P_NO = ?
 	</entry>
 
 	<entry key="selectAll">
-		SELECT P_TITLE, P_CONTENT, CREATE_DT
+		SELECT P_NO, P_TITLE, P_CONTENT, CREATE_DT
 		FROM POST
 		WHERE DELETE_FL ='N'
+		AND MEM_NO = ?
 	</entry>
 	
 	<entry key="insert">
@@ -19,10 +21,26 @@
 		VALUES(SEQ_P_NO.NEXTVAL, ?, ?, DEFAULT, DEFAULT, ?)
 	</entry>
 	
-	<entry key="selectone">
-		SELECT P_TITLE, P_CONTENT, CREATE_DT
-		FROM POST 
+	<entry key="update">
+		UPDATE POST SET
+		P_TITLE = ?,
+		P_CONTENT = ?
 		WHERE P_NO = ?
+		AND MEM_NO = ?
+	</entry>
+	
+	<entry key="delete">
+		UPDATE POST SET
+		DELETE_FL = 'Y'
+		WHERE P_NO = ?	
+		AND MEM_NO = ?
+	</entry>
+	
+	<entry key="selectMain">
+		SELECT P_NO, P_TITLE, P_CONTENT, CREATE_DT
+		FROM POST
+		WHERE DELETE_FL ='N'
+		ORDER BY CREATE_DT DESC
 	</entry>
 
 

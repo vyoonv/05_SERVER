@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet {
 				
 				PostService postService = new PostService(); 
 				
-				List<Post> postList = postService.selectAll();
+				List<Post> postList = postService.selectAll(loginMember.getMemNo());
 				
 				session.setAttribute("postList", postList);
 				

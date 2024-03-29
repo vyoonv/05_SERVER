@@ -29,7 +29,7 @@
 				<span id="nameMessage"></span>
 				<br>
 				
-				<button>가입하기</button>
+				<button id="signup-btn">가입하기</button>
 			</form>
 		</main>
 	

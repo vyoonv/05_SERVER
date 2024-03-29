@@ -14,7 +14,7 @@
 	<body>
 		<main>
 		
-			<c:choose>
+		<c:choose>
 				<%-- 메인페이지/로그인 전/로그인/회원가입버튼만 보이게 --%>
 				<c:when test="${empty sessionScope.loginMember}">
 				
@@ -27,39 +27,48 @@
 				</c:when>
 
  			<c:otherwise>
- 			
- 			
- 			
-				<c:choose>
+ 				<c:choose>
+				
 					<%-- 포스트가 없다면 --%>
 					<c:when test="${empty postList}">
-						<button href="/insert">새 포스트</button>
+						<h2> 새로운 포스트를 등록해 보세요</h2>
 					</c:when>
-					
 					<c:otherwise>
-						<div class="postboard">
+				<%-- 포스트가 있다면 --%>
+					<div class="postboard">
+						
 							<c:forEach var="post" items="${postList}">
 								<div class="eachpost">
-									<div id="posttitle" onclick="location.href='/selectone'">${post.postTitle}</div>
+									<input name="postNo" type="hidden" value="${post.postNo}">
+									<div id="postTitle">${post.postTitle}</div>
+									<div id="postContent">${post.postContent}</div>
+									<br>
+								<div>
+									<a href="/update?postNo=${post.postNo}" class="update-btn">수정</a>
+									<a href="/delete?postNo=${post.postNo}" class="delete-btn" 
+										onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>	
+								</div>							
 							</div>
 							</c:forEach>
-						</div>
+					</div>
+		
+		
 					</c:otherwise>
-			</c:choose>	
+				</c:choose>	
 			
-			<div class="button-div">
-				<a href="/insert">새 포스트</a>
-				<a>로그아웃</a>
+			<div class="buttons">
+			<a href="/main" id="main-btn">메인</a>
+			<a href="/insert" id="newpost-btn">새 포스트</a>
+			<a href="/logout" id="logout-btn">로그아웃</a>
 			</div>
 			
 							
 			</c:otherwise>
-		</c:choose> 	
+			</c:choose> 
 		
 		</main>
-		
-		
-			<%-- session에 message가 존재할 경우 --%>
+				
+		<%-- session에 message가 존재할 경우 --%>
 		<%-- not empty : 비어있지 않을 경우 true --%>
 		<c:if test="${not empty sessionScope.message}">
 			<script>

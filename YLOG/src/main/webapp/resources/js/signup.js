@@ -42,6 +42,27 @@ inputPwConfirm.addEventListener("keyup", function(){
 }); 
 
 
+inputPwConfirm.addEventListener("keyup", function() {
+
+    if( (inputPw.value == inputPwConfirm.value) && inputPw.value.length != 0) {
+        pwMessage.innerText = "비밀번호 일치";
+        pwMessage.classList.add("confirm");
+        pwMessage.classList.remove("error");
+        this.style.backgroundColor = "#b2ebcb"
+        this.style.color ="white";
+        checkObj.inputPw = true;
+        checkObj.inputPwConfirm = true;
+    } else {
+        pwMessage.innerText = "비밀번호 불일치";
+        pwMessage.classList.add("error");
+        pwMessage.classList.remove("confirm");
+        this.style.backgroundColor = "black"
+        this.style.color = "white"
+        checkObj.inputPwConfirm = false;
+    }
+});
+
+
 
 inputPw.addEventListener("keyup", function(){
 
@@ -50,6 +71,8 @@ inputPw.addEventListener("keyup", function(){
         pwMessage.innerText = "비밀번호 일치"; 
         pwMessage.classList.add("confirm"); 
         pwMessage.classList.remove("error"); 
+        this.style.backgroundColor = "#b2ebcb"
+        this.style.color ="white";
         checkObj.inputPw = true; 
         checkObj.inputPwConfirm = true; 
     } else {
@@ -61,6 +84,15 @@ inputPw.addEventListener("keyup", function(){
 
 
 }); 
+
+
+
+
+
+
+
+
+
 
 const inputName = document.getElementById("inputName"); 
 

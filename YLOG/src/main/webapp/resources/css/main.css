@@ -116,6 +116,31 @@ main h1 {
     flex-direction: column;
 }
 
+.signup-form p {
+    margin-top: 10px;
+}
+
+#signup-btn {
+    font-size: 20px;
+    background-color: #42756e;
+    color: white;
+    border: none; 
+    margin-top: 20px;
+    cursor: pointer;
+    height: 40px;
+}
+
+input {
+    height: 40px;
+    font-size: 17px;
+}
+
+#pwMessage, #nameMessage, #idMsg {
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+
 .signup:hover{
     border-bottom: 2px solid #7a9e8a;
 }
@@ -129,4 +154,116 @@ main h1 {
     flex-direction: column;
 }
 
+.insert-btn{
 
+    background-color: #42756e;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 7px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+
+}
+
+.update-btn {
+
+    background-color: #7a9e8a;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 7px;
+    margin-top: 4px;
+    margin-right: 4px;
+    border: none;
+
+}
+
+.delete-btn {
+
+    background-color: rgb(158, 158, 158);
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 7px;
+    margin-top: 4px;
+    margin-right: 4px;
+    border: none;
+
+}
+
+
+
+#newpost-btn {
+ 
+    background-color: #63a199;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 7px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+
+
+}
+
+
+#logout-btn {
+
+    background-color: #3d5e59;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 7px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+
+}
+
+#main-btn {
+
+    background-color: #05caad;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 7px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+
+}
+
+#postContent {
+    margin-top: 10px;
+    border-top: 1px solid #3d5e59;
+    padding-top: 7px;
+    
+}
+
+.buttons {
+
+    margin-top: 20px;
+    padding-left: 15%;
+
+}
+
+.back-btn {
+    background-color: #103a34;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 7px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+}

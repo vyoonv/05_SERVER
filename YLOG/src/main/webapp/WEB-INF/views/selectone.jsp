@@ -14,16 +14,12 @@
 	<body>
 	
 		<main>
-			<div>
+			<%
+				session.getAttribute("postTitle"); 
+			%>
+		
 			
-			<div><%= request.getAttribute("post") %></div>
-			
-			<span>${post.postContent}</span>
-
-			</div>
-					<a class="update-btn">수정</a>
-					<a class="delete-btn">삭제</a>
-				
+	
 		</main>
 	
 	</body>
@@ -32,11 +28,27 @@
 
 
 
+<%--
 
+	<c:choose>
+				
+				<c:when test="${post.memNo == sessionScope.loginMember.memNo}">
+					<table>
+					<tr>
+						<td>${post.postTitle}</td>
+						<td>${post.postContent}</td>
+						<td><a class="update-btn">수정</a></td>
+						<td><a class="delete-btn">삭제</a></td>
+					</tr>	
+					</table>
+					
+				</c:when>
+			
+			
+			
+			</c:choose>
 
-
-
-
+ --%>
 
 
 
