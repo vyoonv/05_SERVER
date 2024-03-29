@@ -267,3 +267,31 @@ input {
     margin-right: 10px;
     border: none;
 }
+
+.back-btn2 {
+    background-color: #103a34;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 7px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+}
+
+.back-btn3 {
+    background-color: #103a34;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 7px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+}
+
+.backbtn3 {
+    margin-left: 25%;
+}

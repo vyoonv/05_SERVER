@@ -14,6 +14,7 @@
 		<main>
 			<h1>수정하기</h1>
 
+			<div class="backbtn3"><button class="back-btn3" onclick="history.back()">돌아가기</button></div>
 			<form action="/update" method="post">
 				<p>제목</p>
 				<input type="text" name="postTitle" value="${post.postTitle}" required>
@@ -25,9 +26,11 @@
 				
 				<input name="postNo" value="${post.postNo}" type="hidden">
 				
-				<br>
-				<button class="insert-btn">수정하기</button>
+				<br>		
+				<button class="insert-btn">수정하기</button>					
 			</form>
+			
+			
 		</main>
 	
 	<c:if test="${not empty sessionScope.message}">

@@ -39,6 +39,12 @@
 						</div>
 				</c:forEach>
 			</div>
+			
+			<div class="buttons">
+			<button class="back-btn2" onclick="history.back()">돌아가기</button>
+			<a href="/insert" id="newpost-btn">새 포스트</a>
+			<a href="/logout" id="logout-btn">로그아웃</a>
+			</div>
 		</c:otherwise>
 	</c:choose>
 	
