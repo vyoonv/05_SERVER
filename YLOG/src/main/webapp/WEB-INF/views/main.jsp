@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="/resources/css/main.css">
 	</head>
 	<body>
-	<main>
+	<main class="mainpage">
 	<c:choose>
 		<c:when test="${empty postList}">
 			<h1>새로운 포스트를 등록해보세요</h1>
@@ -20,6 +20,7 @@
 			</div>		
 		</c:when>	
 		<c:otherwise>			
+			<h1>WHAT'S NEW</h1>
 			<div class="postboard">
 				<c:forEach var="post" items="${postList}">
 						<div class="eachpost">

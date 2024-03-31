@@ -1,6 +1,8 @@
 package edu.kh.ylog.controller;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import edu.kh.ylog.member.model.dto.Member;
 import edu.kh.ylog.member.model.service.MemberService;
@@ -25,21 +27,31 @@ public class SignupController extends HttpServlet{
 		
 		try {
 			
+			Member member = new Member(); 
+			MemberService service = new MemberService(); 
+			HttpSession session = req.getSession(); 
+			
+			
 			String inputId = req.getParameter("inputId"); 
+			
+			int idResult = service.duplicationCheck(inputId); 
+			
+			if(idResult != 0) {
+	            session.setAttribute("message", "이미 사용 중인 아이디!");
+	            resp.sendRedirect(req.getHeader("referer"));
+	            return;
+	        }
+	        			
 			String inputPw = req.getParameter("inputPw");
 			String inputName = req.getParameter("inputName");
-			
-			Member member = new Member(); 
 			
 			member.setMemId(inputId);
 			member.setMemPw(inputPw);
 			member.setMemNickname(inputName);
 			
-			MemberService service = new MemberService(); 
-			
 			int result = service.signup(member);
 			
-			HttpSession session = req.getSession(); 
+			
 			
 			if(result > 0) {
 				
@@ -50,8 +62,6 @@ public class SignupController extends HttpServlet{
 				session.setAttribute("message", "회원가입 실패...");
 				resp.sendRedirect(req.getHeader("referer"));
 			}
-			
-			
 			
 			
 		} catch (Exception e) {

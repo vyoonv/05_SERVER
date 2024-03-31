@@ -1,5 +1,5 @@
 INDEX VERSION 1.134
-C:\workspace\05_SERVER\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\325765927.index
+C:\workspace\Java\05_SERVER\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\325765927.index
 \YLOG\src\main\java
-C:\workspace\05_SERVER\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\356047933.index
+C:\workspace\Java\05_SERVER\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\356047933.index
 \YLOG\src\main\java

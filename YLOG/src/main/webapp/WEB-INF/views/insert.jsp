@@ -32,6 +32,15 @@
 		
 		</main>
 		
+		<c:if test="${not empty sessionScope.message}">
+			<script>
+				alert('${message}'); 
+			</script>
+			 
+		 <c:remove var="message" scope="session" />
+		
+		</c:if>
+		
 	
 	</body>
 </html>

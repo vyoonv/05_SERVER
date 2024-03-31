@@ -16,6 +16,24 @@
 		VALUES(SEQ_MEM_NO.NEXTVAL,?, ?, ?, DEFAULT, DEFAULT)
 	</entry>
 	
+	<entry key="duplicationCheck">
+		SELECT COUNT(*) FROM "YMEMBER" 
+		WHERE UNREGISTER_FL = 'N'
+		AND MEM_ID = ? 
+	</entry>
+	
+	<entry key="selectOne">
+		SELECT MEM_NO, MEM_ID, MEM_PW, MEM_NN, 
+				TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') AS ENROLL_DATE 
+		FROM "YMEMBER" 
+		WHERE UNREGISTER_FL = 'N'
+		AND MEM_NO = ? 
+	</entry>
 
+	<entry key="updateMember">
+		UPDATE YMEMBER SET
+		MEM_NN = ?, MEM_PW = ?
+		WHERE MEM_NO = ?
+	</entry>
 
 </properties>

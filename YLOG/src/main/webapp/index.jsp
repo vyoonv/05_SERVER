@@ -32,11 +32,13 @@
 					<%-- 포스트가 없다면 --%>
 					<c:when test="${empty postList}">
 						<h2> 새로운 포스트를 등록해 보세요</h2>
+						<a href="/mypage" id="mypage">마이페이지</a>
 					</c:when>
 					<c:otherwise>
 				<%-- 포스트가 있다면 --%>
 					<div class="postboard">
-						
+							
+							<h2>내 포스트</h2>
 							<c:forEach var="post" items="${postList}">
 								<div class="eachpost">
 									<input name="postNo" type="hidden" value="${post.postNo}">
@@ -56,10 +58,11 @@
 					</c:otherwise>
 				</c:choose>	
 			
-			<div class="buttons">
-			<a href="/main" id="main-btn">메인</a>
-			<a href="/insert" id="newpost-btn">새 포스트</a>
-			<a href="/logout" id="logout-btn">로그아웃</a>
+			<div class="buttons">				
+				<a href="/main" id="main-btn">메인</a>
+				<a href="/mypage" id="mypage">마이페이지</a>
+				<a href="/insert" id="newpost-btn">새 포스트</a>
+				<a href="/logout" id="logout-btn">로그아웃</a>
 			</div>
 			
 							

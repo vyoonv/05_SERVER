@@ -44,7 +44,7 @@ public class MemberDAO {
 	 */
 	public Member login(Connection conn, String inputId, String inputPw) throws Exception {
 	
-		Member loginMember =null; 
+		Member loginMember = null; 
 		
 		try {
 			
@@ -101,6 +101,104 @@ public class MemberDAO {
 			
 			
 			
+		} finally {
+			
+			close(pstmt); 
+			
+		}
+		
+		
+		
+		return result;
+	}
+
+	/** 아이디 중복 검사 
+	 * @param conn
+	 * @param inputId
+	 * @return 
+	 */
+	public int duplicationCheck(Connection conn, String inputId) throws Exception {
+		
+		int idResult = 0; 
+		
+		try {
+			
+			String sql = prop.getProperty("duplicationCheck"); 
+			
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setString(1, inputId);
+			rs = pstmt.executeQuery(); 
+			
+			if(rs.next()) {
+				idResult = rs.getInt(1); 
+			}
+			
+			
+		} finally {
+			
+			close(rs); 
+			close(pstmt); 
+		}
+		
+		
+		
+		return idResult;
+	}
+
+	/** 회원 정보 조회 
+	 * @param conn
+	 * @param memNo
+	 * @return
+	 * @throws Exception
+	 */
+	public Member selectOne(Connection conn, int memNo) throws Exception {
+		
+		Member upMember = null; 
+		
+		try {
+			
+			String sql = prop.getProperty("selectOne"); 
+			
+			pstmt = conn.prepareStatement(sql); 
+			
+			pstmt.setInt(1, memNo);
+			rs = pstmt.executeQuery(); 
+			
+			if(rs.next()) {
+				upMember = new Member(); 
+				
+				upMember.setMemNo(rs.getInt("MEM_NO"));
+				upMember.setMemId(rs.getString("MEM_ID"));
+				upMember.setMemNickname(rs.getString("MEM_NN"));
+				upMember.setEnrollDate(rs.getString("ENROLL_DATE"));
+				
+			}
+		
+		} finally {
+			
+			close(rs); 
+			close(pstmt); 
+			
+		}
+		
+		return upMember;
+	}
+
+	public int updateMember(Connection conn, Member updateMember) throws Exception {
+		
+		int result = 0;  
+		
+		try {
+			
+			String sql = prop.getProperty("updateMember"); 
+			
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setString(1, updateMember.getMemNickname());
+			pstmt.setString(2, updateMember.getMemPw());
+			pstmt.setInt(3, updateMember.getMemNo());
+			
+			result = pstmt.executeUpdate(); 
+		
 		} finally {
 			
 			close(pstmt); 

@@ -4,7 +4,7 @@
 	
 	<entry key = "driver">oracle.jdbc.driver.OracleDriver</entry>
 	<entry key = "url">jdbc:oracle:thin:@localhost:1521:XE</entry>
-	<entry key = "user">ylog</entry>
-	<entry key = "password">ylog</entry>
+	<entry key = "user">yoon</entry>
+	<entry key = "password">1234</entry>
 	
 </properties>
